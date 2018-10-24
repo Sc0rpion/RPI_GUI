@@ -7,15 +7,15 @@
  <body>
 	 <b>Установка PGK</b>
 <form action="action.php" method="get">
- <p>ip ps4: <input type="text" name="ip" /></p>
- <p>url pkg (обязательно с http://): <input type="text" name="package" /></p>
+ <p>ip ps4: <input type="text" name="ip" value="<?php echo isset($_GET['ip'])?$_GET['ip']:' '; ?>"/></p>
+ <p>url pkg (обязательно с http://): <input type="text" name="package" value="<?php echo isset($_GET['package'])?$_GET['package']:' '; ?>"/></p>
  <input type="hidden" name="procedure" value="install">
  <p><input type="submit" /></p>
 </form>
 <br><br><b>Проверка операции по task_id</b>
 <form action="action.php" method="get">
-	<p>ip ps4: <input type="text" name="ip" /></p>
- <p>task_id: <input type="text" name="task_id" /></p>
+ <p>ip ps4: <input type="text" name="ip" value="<?php echo isset($_GET['ip'])?$_GET['ip']:' '; ?>"/></p>
+ <p>task_id: <input type="text" name="task_id" value="<?php echo isset($_GET['task_id'])?$_GET['task_id']:' '?>"/></p>
  <input type="hidden" name="procedure" value="get_task_progress">
  <p><input type="submit" /></p>
 </form>
@@ -48,9 +48,12 @@
 	    'Content-Type: application/json',                                                                                 
 	    'Content-Length: ' . strlen($data_string))                                                                       
 	);                                                                                                                   
-                                                                                                                     
+                                                                                                                  
 	$result = curl_exec($ch);
+	
 	curl_close($ch);
+	
+	if ($result == TRUE) {
 
 	$status = parse("status",$result);
 
@@ -74,12 +77,18 @@
 		echo "Устанавливается файл №$num_index из $num_total, осталось всего времени $rest_sec_total мин., $percents%. Скопировалось $transferred_total ГБ из $length_total ГБ";
 	}
 
-} else {echo 'Укажите IP и URL для установки или task_id';}
+} else echo 'Нет связи с приставкой, либо не установлен cURL.';
+
+
+} else echo 'Укажите IP и URL для установки или task_id';
+
+
 	function parse($arg,$string){
 	if(preg_match("/\"$arg\": (.*?),/",str_replace('}', ",", $string),$matches)){ $text = str_replace('"', "", $matches[1]);} else {$text = '';}
 	return $text;
 	}
-	
-
 ?>
+<br><br>
+<form method="link" action="javascript:document.location.reload()"><input type="submit" value="update" onClick="this.value = 'updating...'"></form></p>
+
 <br><br><br> Developed by <b>Sc0rpion</b>
