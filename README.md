@@ -1,6 +1,6 @@
 # PS4 Remote Package Installer WEB GUI
 
-WEB GUI для PS4 Remote Package Installer (https://gist.github.com/flatz/60956f2bf1351a563f625357a45cd9c8)<br />
+WEB GUI для PS4 Remote Package Installer (https://mega.nz/#!GVMmgaqY!0jtBc1BWaPD2_5MoYszzxdMjcCKMq8zvM6s6Mwzl8yw)<br />
 
 # Требования:
 PS4 с HEN 1.8 (http://zecoxao.github.io/) <br />
