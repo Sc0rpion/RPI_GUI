@@ -1,9 +1,11 @@
 <?php	if (isset($_GET['procedure']) && isset($_GET['ip'])) {
-
 		setcookie("package",isset($_GET['package'])?trim($_GET['package']):' ');
 		setcookie("ip",isset($_GET['ip'])?trim($_GET['ip']):' ');
-		setcookie("task_id",intval(isset($_GET['task_id'])?trim($_GET['task_id']):' '));}?>
-
+		setcookie("task_id",intval(isset($_GET['task_id'])?trim($_GET['task_id']):' '));}
+		
+		//Найстройки
+		$folder = ".";  // Папка играми, '.' категория где и index.php
+		?>		
 
 <!DOCTYPE HTML>
 
@@ -11,20 +13,55 @@
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>PS4 Remote Package Installer GUI</title>
+  
+  <script type="text/javascript">
+  function WhereYouWillSend(a){document.getElementById('url').value=a;document.getElementById('url').size=50;};
+</script>
+  
+  
  </head>
  <body>
 	<center><h1>PS4 Remote Package Installer GUI</h1></center>
 	 <b>Установка PGK</b>
-<form action="action.php" method="get">
- <p>ip ps4: <input type="text" name="ip" value="<?php echo isset($_COOKIE['ip'])?$_COOKIE['ip']:' '; ?>"/></p>
- <p>url pkg (обязательно с http://): <input type="text" name="package" value="http://"/></p>
+<form action="index.php" method="get">
+ <p>ip ps4: <input type="text" name="ip" required pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo isset($_COOKIE['ip'])?$_COOKIE['ip']:' '; ?>"/></p>
+ 
+ <p>url pkg (обязательно с http://): <input type="text" id="url" size="" name="package" value="http://"/></p>
+ 
+ <?php
+echo '<select onchange="WhereYouWillSend(this.value)">
+	<option value="http://" selected="">Выберите *.PKG для установки или введите URL</option>
+	';
+$list = scandir($folder);
+foreach($list as $item)
+{
+ if(($item ==".") || ($item=="..") || (strpos($item,'.pkg' ) === false))
+ continue;
+ $path = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['SCRIPT_NAME'];
+ $file = substr($path, 0, -strlen(basename($path))); 
+ if ($folder != '.') $pod_fol = $folder.'/';
+echo   '<option value="'.$file.$pod_fol.$item.'">'.$item.'</option>'; 
+ }
+ echo '</select>';
+ ?>
+ 
  <input type="hidden" name="procedure" value="install">
  <p><input type="submit" /></p>
 </form>
 <br><b>Статус операции по task_id</b>
-<form action="action.php" method="get">
- <p>ip ps4: <input type="text" name="ip" value="<?php echo isset($_COOKIE['ip'])?$_COOKIE['ip']:' '; ?>"/></p>
- <p>task_id: <input type="text" name="task_id" value="<?php echo isset($_COOKIE['task_id'])?$_COOKIE['task_id']:' '; ?>"/></p>
+<form action="index.php" method="get">
+ <p>ip ps4: <input type="text" name="ip" required pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo isset($_COOKIE['ip'])?$_COOKIE['ip']:' '; ?>"/></p>
+ <p>task_id: <input type="text" name="task_id" value="<?php echo isset($_COOKIE['task_id'])?$_COOKIE['task_id']:' '; ?>"/>
+ <?php
+ if (file_exists("task_id.txt")){
+	 $f = fopen ("task_id.txt", "r");
+ 
+	 while (($s = fgets($f)) !== false)
+	       $last_line = $s;
+	 echo '<em>Последняя установка: </em>'.$last_line.'</p>';
+	 fclose($f);
+ }
+ ?>
  <input type="hidden" name="procedure" value="get_task_progress">
  <p><input type="submit" /></p>
 </form>
@@ -66,20 +103,28 @@
 	$status = parse("status",$result);
 
 	if ($status == 'fail') {$error = parse("error",$result); $error_r = parse("error_code",$result); echo "Что то пошло не так, ошибка: $error, $error_r";}
-	if ($status == 'success' && $procedure == 'install') {$task_id = parse("task_id",$result); $title = parse("title",$result); echo "Успешно, игра: $title устанавивается, task_id: $task_id"; echo '<br><b><p><a href="'."?ip=$ip&task_id=$task_id&procedure=get_task_progress".'">Проверить операцию task_id: '.$task_id.'</a></p></b>';}
+	if ($status == 'success' && $procedure == 'install') {
+		$task_id = parse("task_id",$result); $title = parse("title",$result); 
+		echo "Успешно, игра: $title устанавивается, task_id: $task_id"; 
+		echo '<br><b><p><a href="'."?ip=$ip&task_id=$task_id&procedure=get_task_progress".'">Проверить операцию task_id: '.$task_id.'</a></p></b>'; 		
+		//Начинается запись в файл task_id.txt
+		$filelog = fopen("task_id.txt","a+"); 
+		fwrite($filelog,"\n task_id: $task_id   game: $title"); 
+		fclose($filelog);
+	}
 	if ($status == 'success' && $procedure == 'get_task_progress') {
-		$length = round((hexdec(parse("length",$result)))/1000000000, 3);
-		$transferred = round((hexdec(parse("transferred",$result)))/1000000000, 3);
+//		$length = round((hexdec(parse("length",$result)))/1000000000, 3);
+//		$transferred = round((hexdec(parse("transferred",$result)))/1000000000, 3);
 		$length_total = round((hexdec(parse("length_total",$result)))/1000000000, 3);
 		$transferred_total = round((hexdec(parse("transferred_total",$result)))/1000000000, 3);
 		$num_index = parse("num_index",$result);
 		$num_total = parse("num_total",$result);
-		$rest_sec = parse("rest_sec",$result);
+//		$rest_sec = parse("rest_sec",$result);
 		$rest_sec_total = round(parse("rest_sec_total",$result)/60, 1);
 		$preparing_percent = parse("preparing_percent",$result);
-		$local_copy_percent = parse("local_copy_percent",$result);
+//		$local_copy_percent = parse("local_copy_percent",$result);
 		$error = parse("error",$result);
-		$bits = (hexdec(parse("bits",$result))); 
+//		$bits = (hexdec(parse("bits",$result))); 
 		$percents = round($transferred_total * 100 / $length_total); 
 		if ($error == 0 && $transferred_total == $length_total) { echo 'Все установилось успешно!';} else
 		echo "Устанавливается файл №$num_index из $num_total, осталось всего времени $rest_sec_total мин., $percents%. Скопировалось $transferred_total ГБ из $length_total ГБ";
@@ -96,4 +141,4 @@
 ?>
 <br><br>
 <form method="link" action="javascript:document.location.reload()"><input type="submit" value="update" onClick="this.value = 'updating...'"></form></p>
-<br><br> Developed by <b>Sc0rpion</b>, v0.02
+<br><br> Developed by <b>Sc0rpion</b>, v0.03
