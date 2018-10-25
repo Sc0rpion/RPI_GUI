@@ -5,6 +5,35 @@
 		
 		//Найстройки
 		$folder = ".";  // Папка играми, '.' категория где и index.php
+		
+		function allDir($dir,&$files)
+		{
+		    $result = scandir($dir);
+		    unset($result[0],$result[1]);
+		    foreach($result as $v)
+		    {
+		        if (is_dir($dir."/".$v)) 
+		        {
+		            allDir($dir."/".$v,$files);
+		        }
+		        else 
+		        {
+				    if(($dir."/".$v ==".") || ($dir."/".$v=="..") || (strpos($dir."/".$v,'.pkg' ) === false)) continue;
+		            $files[] = $dir."/".$v;
+					$fil = $dir."/".$v;
+				    $path = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['SCRIPT_NAME'];
+				    $fold = substr($path, 0, -strlen(basename($path))-1); 
+					$file = substr($fil, 1);
+					
+					if ($dir != $oldFold) {echo '<optgroup label="'.$dir.'">';}
+					
+				    echo   '<option value="'.$fold.$file.'">'.basename($file).'</option>'; 
+					$oldFold = $dir;
+		        }
+		    }
+		}
+		$files = array();
+		$oldFold = '';
 		?>		
 
 <!DOCTYPE HTML>
@@ -32,16 +61,9 @@
 echo '<select onchange="WhereYouWillSend(this.value)">
 	<option value="http://" selected="">Выберите *.PKG для установки или введите URL</option>
 	';
-$list = scandir($folder);
-foreach($list as $item)
-{
- if(($item ==".") || ($item=="..") || (strpos($item,'.pkg' ) === false))
- continue;
- $path = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['SCRIPT_NAME'];
- $file = substr($path, 0, -strlen(basename($path))); 
- if ($folder != '.') $pod_fol = $folder.'/';
-echo   '<option value="'.$file.$pod_fol.$item.'">'.$item.'</option>'; 
- }
+
+	allDir($folder,$files);	
+
  echo '</select>';
  ?>
  
@@ -141,4 +163,4 @@ echo   '<option value="'.$file.$pod_fol.$item.'">'.$item.'</option>';
 ?>
 <br><br>
 <form method="link" action="javascript:document.location.reload()"><input type="submit" value="update" onClick="this.value = 'updating...'"></form></p>
-<br><br> Developed by <b>Sc0rpion</b>, v0.03
+<br><br> Developed by <b>Sc0rpion</b>, v0.04
