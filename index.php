@@ -1,4 +1,6 @@
-<?php	if (isset($_POST['procedure']) && isset($_POST['ip'])) {
+<?php	
+date_default_timezone_set('UTC');
+if (isset($_POST['procedure']) && isset($_POST['ip'])) {
 	setcookie("package",isset($_POST['package'])?trim($_POST['package']):' ');
 	setcookie("ip",isset($_POST['ip'])?trim($_POST['ip']):' ');
 	setcookie("task_id",intval(isset($_POST['task_id'])?trim($_POST['task_id']):' '));}
