@@ -21,7 +21,7 @@ PS4 и ваш PC должны быть в одной сети и видеть д
 
 1) Чистите все следы от прежних HEN, чистите куки, кэш и запускайте HEN 1.8 (http://zecoxao.github.io)
 2) Устанавливаете [remote_pkg_installer.pkg - 4.1 MB](https://mega.nz/#!GVMmgaqY!0jtBc1BWaPD2_5MoYszzxdMjcCKMq8zvM6s6Mwzl8yw)
-3) Скачиваете и распаковываете [UwAmp.zip - 77.8 MB](https://mega.nz/#!ehsw1SgJ!WvfBG_9aSxFc2_Z--dOMw27kLibdtGW113EnykQe1jk)
+3) Скачиваете и распаковываете [UwAmp.zip - 77.8 MB](https://mega.nz/#!288GUIwY!6W6UJuust4UcgMd87z2S90hU_tpuS4XGT8XvPom2nf4)
 ему требуется  [C ++ Redistributable Package for Visual Studio 2012 Update 4](https://www.microsoft.com/ru-ru/download/details.aspx?id=30679)
 4) В папку www скидываете игру *.pkg
 5) Запустите Remote Package Installer
@@ -61,7 +61,7 @@ PS4 and your PC must be on the same network and see each other
 
 1. Clean all traces from previous HEN, clean cookies, cache and run HEN 1.8 (http://zecoxao.github.io)
 2. Install the PKG [remote_pkg_installer.pkg - 4.1 MB](https://mega.nz/#!GVMmgaqY!0jtBc1BWaPD2_5MoYszzxdMjcCKMq8zvM6s6Mwzl8yw)
-3. Download and unpack [UwAmp.zip - 77.8 MB](https://mega.nz/#!ehsw1SgJ!WvfBG_9aSxFc2_Z--dOMw27kLibdtGW113EnykQe1jk) it requires [C ++ Redistributable Package for Visual Studio 2012 Update 4](https://www.microsoft.com/ru-ru/download/details.aspx?id=30679)
+3. Download and unpack [UwAmp.zip - 77.8 MB](https://mega.nz/#!288GUIwY!6W6UJuust4UcgMd87z2S90hU_tpuS4XGT8XvPom2nf4) it requires [C ++ Redistributable Package for Visual Studio 2012 Update 4](https://www.microsoft.com/ru-ru/download/details.aspx?id=30679)
 4. In the folder www you throw off the game * .pkg
 5. Run Remote Package Installer
 6. Run UwAmp.exe
