@@ -8,7 +8,7 @@ if (isset($_POST['procedure']) && isset($_POST['ip'])) {
 	//	Найстройки/Settings
 	$folder = ".";  			// Папка играми, '.' категория где и index.php 	// Folder with Games, '.' folder where index.php, last simbol must be '/'
 	$folder_log = './extra/';  	// Папка с логами				   				// Folder with logs,  '.' folder where index.php, last simbol must be '/'
-	$lang = "rus";				// Переключение языка, rus						// Select language, for english set "eng"
+	$lang = "fr";				// Переключение языка, rus						// Select language, for english set "eng", for french set "fr"
 	?>		
 <!DOCTYPE HTML>
 <html>
@@ -191,6 +191,7 @@ if (isset($_POST['procedure']) && isset($_POST['ip'])) {
 					<li>Developers</li>
 					<li><a link="0000FF" href="https://github.com/flatz">Remote Package Installer - <b>flatz</b></a></li>
 					<li><a style="color: rgb (255, 255, 255)" href="https://github.com/Sc0rpion">WEB GUI - <b>Sc0rpion</b></a></li>
+					<li><a link="0000FF" href="https://www.modconsoles.fr/profile/5-chronoss/">Trad FR - <b>Chronoss</b></a></li>
 				</ul>
 			</center>
 		</div>
@@ -250,18 +251,25 @@ if (isset($_POST['procedure']) && isset($_POST['ip'])) {
 	  
 	  function lang_echo($lang, $text, $arg1, $arg2, $arg3, $arg4,$arg5,$arg6){
 		  if ($text == 'empty_all' && $lang == 'eng') return ("Set the IP and URL to install or task_id to get the installation status");
+		  if ($text == 'empty_all' && $lang == 'fr') return ("Spécifiez votre adresse IP et URL à installer ou task_id pour obtenir la progression du fichier à installer.");
 		  if ($text == 'empty_all' && $lang == 'rus') return ("Укажите IP и URL для установки или task_id для получения статуса установки");
 		  if ($text == 'curl_error' && $lang == 'eng') return ("No connection with PS4, or not installed cURL");
+		  if ($text == 'curl_error' && $lang == 'fr') return ("Aucune connexion avec votre PS4, ou cURL pas installé.");
 		  if ($text == 'curl_error' && $lang == 'rus') return ("Нет связи с PS4, либо не установлен cURL");
 		  if ($text == 'install_success' && $lang == 'eng') return ("All install successfully!");
+		  if ($text == 'install_success' && $lang == 'fr') return ("Tous les fichiers ont été installé avec succès");
 		  if ($text == 'install_success' && $lang == 'rus') return ("Все установилось успешно!");		  
 		  if ($text == 'something_wrong' && $lang == 'eng') return ("Something went wrong: ".$arg1.$arg2);
+		  if ($text == 'something_wrong' && $lang == 'fr') return ("Une erreur est survenu: ".$arg1.$arg2);
 		  if ($text == 'something_wrong' && $lang == 'rus') return ("Что то пошло не так, ошибка: ".$arg1.$arg2);
 		  if ($text == 'set_PKG' && $lang == 'eng') return ("Select * .PKG to install or enter URL");
+		  if ($text == 'set_PKG' && $lang == 'fr') return ("Sélectionnez votre *.PKG à installer");
 		  if ($text == 'set_PKG' && $lang == 'rus') return ("Выберите *.PKG для установки или введите URL");
 		  if ($text == 'install_start' && $lang == 'eng') return ("Success, game: $arg1 install, task_id: $arg2");
+		  if ($text == 'install_start' && $lang == 'fr') return ("Le jeu: $arg1 a été installé avec succès, task_id: $arg2");
 		  if ($text == 'install_start' && $lang == 'rus') return ("Успешно, игра: $arg1 устанавивается, task_id: $arg2");
 		  if ($text == 'status_install' && $lang == 'eng') return ("Installing file №$arg1 of $arg2, time left $arg3 min., $arg4%. Copy $arg5 ГБ of $arg6 ГБ");
+		  if ($text == 'status_install' && $lang == 'fr') return ("Fichier d'installation de №$arg1 sur $arg2, temps restant $arg3 min., $arg4%. Copie en cours de $arg5 Go sur $arg6 Go");
 		  if ($text == 'status_install' && $lang == 'rus') return ("Устанавливается файл №$arg1 из $arg2, осталось всего времени $arg3 мин., $arg4%. Скопировалось $arg5 ГБ из $arg6 ГБ");
 	  }
 	?>
