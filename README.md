@@ -4,7 +4,7 @@ WEB GUI для PS4 Remote Package Installer (https://mega.nz/#!GVMmgaqY!0jtBc1BW
 
 Для смены языка измените $lang в index.php [rus]  / For change language edit $lang in index.php [eng]
 
-Обновление/Update <br />
+# Обновление/Update
 v0.1.5 для тех кто пользуется UwAmp сборкой, размер в разы стал меньше (29.2mb vs 80mb) и меньше потребляет ресурсов системы [Скачать UwAMP v0.1.5](https://mega.nz/#!LtFgBYQA!23Jk2MIykr5jOJ0_LaPeKqaG7JDJBmfWdW1pFapx6pA) <br />
 v0.1.5 for users who using UwAmp Pack, the size has become smaller (29.2mb vs 80mb) and deleted everything not needed [UwAMP v0.1.5](https://mega.nz/#!LtFgBYQA!23Jk2MIykr5jOJ0_LaPeKqaG7JDJBmfWdW1pFapx6pA)
 
