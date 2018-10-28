@@ -95,7 +95,7 @@ if (isset($_POST['procedure']) && isset($_POST['ip'])) {
 		</div>
 		<ul class="flex-container">
 			<li class="flex-item">
-				<b>Install PGK</b>
+				<b>Install PKG</b>
 				<form action="index.php" method="POST">
 					<p>ip ps4: <input type="text" name="ip" required pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo isset($_COOKIE['ip'])?$_COOKIE['ip']:''; ?>"/></p>
 					<p>url pkg (http://): <input type="text" id="url" size="" name="package" value="http://"/></p>
