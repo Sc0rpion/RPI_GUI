@@ -5,8 +5,8 @@ WEB GUI для PS4 Remote Package Installer (https://mega.nz/#!GVMmgaqY!0jtBc1BW
 Для смены языка измените $lang в index.php [rus]  / For change language edit $lang in index.php [eng]
 
 # Обновление/Update
-v0.2 Пробелы в названии папок и игр теперь не проблема. Запускать только от имени администратора [Скачать UwAMP v0.2](https://mega.nz/#!WksDRCJI!JnDrWi2BjuKhM-moNTfgqTm8jSaTU2sRFAmSr8fnlSw) <br />
-v0.2 Spaces in the names of folders and games are not a problem. Run as administrator only [UwAMP v0.2](https://mega.nz/#!WksDRCJI!JnDrWi2BjuKhM-moNTfgqTm8jSaTU2sRFAmSr8fnlSw)
+v0.2 Теперь игры устанавливаются, даже если в пути до них присутствуют пробелы. Запускать только от имени администратора [Скачать UwAMP v0.2](https://mega.nz/#!WksDRCJI!JnDrWi2BjuKhM-moNTfgqTm8jSaTU2sRFAmSr8fnlSw) <br />
+v0.2 Now games are installed, even if there are spaces on the way to them.. Run as administrator only [UwAMP v0.2](https://mega.nz/#!WksDRCJI!JnDrWi2BjuKhM-moNTfgqTm8jSaTU2sRFAmSr8fnlSw)
 
 [На русском](https://github.com/Sc0rpion/RPI_GUI#%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F) <br>
 [On English](https://github.com/Sc0rpion/RPI_GUI#requirements)
