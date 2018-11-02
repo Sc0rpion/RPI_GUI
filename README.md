@@ -1,12 +1,12 @@
-# PS4 Remote Package Installer WEB GUI v0.1.5
+# PS4 Remote Package Installer WEB GUI v0.2
 
 WEB GUI для PS4 Remote Package Installer (https://mega.nz/#!GVMmgaqY!0jtBc1BWaPD2_5MoYszzxdMjcCKMq8zvM6s6Mwzl8yw)<br />
 
 Для смены языка измените $lang в index.php [rus]  / For change language edit $lang in index.php [eng]
 
 # Обновление/Update
-v0.1.5 для тех кто пользуется UwAmp сборкой, размер в разы стал меньше (29.2mb vs 80mb) и меньше потребляет ресурсов системы [Скачать UwAMP v0.1.5](https://mega.nz/#!LtFgBYQA!23Jk2MIykr5jOJ0_LaPeKqaG7JDJBmfWdW1pFapx6pA) <br />
-v0.1.5 for users who using UwAmp Pack, the size has become smaller (29.2mb vs 80mb) and deleted everything not needed [UwAMP v0.1.5](https://mega.nz/#!LtFgBYQA!23Jk2MIykr5jOJ0_LaPeKqaG7JDJBmfWdW1pFapx6pA)
+v0.2 Пробелы в названии папок и игр теперь не проблема. Запускать только от имени администратора [Скачать UwAMP v0.2](https://mega.nz/#!WksDRCJI!JnDrWi2BjuKhM-moNTfgqTm8jSaTU2sRFAmSr8fnlSw) <br />
+v0.2 Spaces in the names of folders and games are not a problem. Run as administrator only [UwAMP v0.2](https://mega.nz/#!WksDRCJI!JnDrWi2BjuKhM-moNTfgqTm8jSaTU2sRFAmSr8fnlSw)
 
 [На русском](https://github.com/Sc0rpion/RPI_GUI#%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F) <br>
 [On English](https://github.com/Sc0rpion/RPI_GUI#requirements)
@@ -25,7 +25,7 @@ PS4 и ваш PC должны быть в одной сети и видеть д
 
 1) Чистите все следы от прежних HEN, чистите куки, кэш и запускайте HEN 1.8 (http://zecoxao.github.io)
 2) Устанавливаете [remote_pkg_installer.pkg - 4.1 MB](https://mega.nz/#!GVMmgaqY!0jtBc1BWaPD2_5MoYszzxdMjcCKMq8zvM6s6Mwzl8yw)
-3) Скачиваете и распаковываете [UwAmp.zip - 29.2 MB](https://mega.nz/#!LtFgBYQA!23Jk2MIykr5jOJ0_LaPeKqaG7JDJBmfWdW1pFapx6pA)
+3) Скачиваете и распаковываете [UwAmp.zip - 29.2 MB](https://mega.nz/#!WksDRCJI!JnDrWi2BjuKhM-moNTfgqTm8jSaTU2sRFAmSr8fnlSw)
 ему требуется  [C ++ Redistributable Package for Visual Studio 2012 Update 4](https://www.microsoft.com/ru-ru/download/details.aspx?id=30679)
 4) В папку www скидываете игру *.pkg
 5) Запустите Remote Package Installer
@@ -65,7 +65,7 @@ PS4 and your PC must be on the same network and see each other
 
 1. Clean all traces from previous HEN, clean cookies, cache and run HEN 1.8 (http://zecoxao.github.io)
 2. Install the PKG [remote_pkg_installer.pkg - 4.1 MB](https://mega.nz/#!GVMmgaqY!0jtBc1BWaPD2_5MoYszzxdMjcCKMq8zvM6s6Mwzl8yw)
-3. Download and unpack [UwAmp.zip - 29.2 MB](https://mega.nz/#!LtFgBYQA!23Jk2MIykr5jOJ0_LaPeKqaG7JDJBmfWdW1pFapx6pA) it requires [C ++ Redistributable Package for Visual Studio 2012 Update 4](https://www.microsoft.com/ru-ru/download/details.aspx?id=30679)
+3. Download and unpack [UwAmp.zip - 29.2 MB](https://mega.nz/#!WksDRCJI!JnDrWi2BjuKhM-moNTfgqTm8jSaTU2sRFAmSr8fnlSw) it requires [C ++ Redistributable Package for Visual Studio 2012 Update 4](https://www.microsoft.com/ru-ru/download/details.aspx?id=30679)
 4. In the folder www you throw off the game * .pkg
 5. Run Remote Package Installer
 6. Run UwAmp.exe
