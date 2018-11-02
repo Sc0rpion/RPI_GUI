@@ -9,6 +9,7 @@ if (isset($_POST['procedure']) && isset($_POST['ip'])) {
 	$folder = ".";  			// Папка играми, '.' категория где и index.php 	// Folder with Games, '.' folder where index.php, last simbol must be '/'
 	$folder_log = './extra/';  	// Папка с логами				   				// Folder with logs,  '.' folder where index.php, last simbol must be '/'
 	$lang = "rus";				// Переключение языка, rus						// Select language, for english set "eng"
+	$temp_folder = "./extra/temp"
 	?>		
 <!DOCTYPE HTML>
 <html>
@@ -90,7 +91,7 @@ if (isset($_POST['procedure']) && isset($_POST['ip'])) {
 	<body>
 		<div class= "content-title">
 			<center>
-				<h1>PS4 Remote Package Installer GUI v0.1</h1>
+				<h1>PS4 Remote Package Installer GUI v0.2</h1>
 			</center>
 		</div>
 		<ul class="flex-container">
@@ -126,7 +127,19 @@ if (isset($_POST['procedure']) && isset($_POST['ip'])) {
 			$task_id = intval(isset($_POST['task_id'])?trim($_POST['task_id']):' ');
 			
 			if (isset($_POST['procedure']) && isset($_POST['ip'])) {
-			
+		
+				if(strpos($package, ' ') !== false) {
+					if(!file_exists($temp_folder)) mkdir($temp_folder, 0777, true);
+				    $path = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['SCRIPT_NAME'];
+				    $fold = substr($path, 0, -strlen(basename($path))-1); 
+					$package_link = substr($package, strlen($fold));
+					$link = $temp_folder."/".basename(str_replace(" ","",$package_link));
+					$pa = dirname(__FILE__).'/'.substr($package_link, 1);
+					if (is_link($link)) unlink($link);
+					symlink($pa, $link);
+					$package = $fold.substr($temp_folder, 1)."/".basename(str_replace(" ","",$package_link));
+				}
+		
 			$type = 'direct';
 			$packages[] = $package;
 			
