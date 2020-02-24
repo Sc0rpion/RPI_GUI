@@ -1,6 +1,6 @@
 # PS4 Remote Package Installer WEB GUI v0.2
 
-WEB GUI для PS4 Remote Package Installer (https://mega.nz/#!GVMmgaqY!0jtBc1BWaPD2_5MoYszzxdMjcCKMq8zvM6s6Mwzl8yw)<br />
+WEB GUI для PS4 Remote Package Installer (https://mega.nz/#!2dN1XajB!Z5fXyFoKOXFI_ujgGoCZfFFy5nyn7OWo6vF6h_HmWhQ)<br />
 
 Для смены языка измените $lang в index.php [rus]  / For change language edit $lang in index.php [eng]
 
@@ -13,7 +13,7 @@ v0.2 Now games are installed, even if there are spaces on the way to them.. Run 
 
 # Требования:
 PS4 с HEN 1.8 (http://zecoxao.github.io/) <br />
-Установленный [remote_pkg_installer.pkg - 4.1 MB](https://mega.nz/#!GVMmgaqY!0jtBc1BWaPD2_5MoYszzxdMjcCKMq8zvM6s6Mwzl8yw) <br />
+Установленный [remote_pkg_installer.pkg - 4.1 MB](https://mega.nz/#!2dN1XajB!Z5fXyFoKOXFI_ujgGoCZfFFy5nyn7OWo6vF6h_HmWhQ) <br />
 Любой web сервер с PHP и cURL <br />
 Нахождение WEB и PS4 в одной сети <br />
 <br />
